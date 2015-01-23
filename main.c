@@ -8,6 +8,8 @@
 #include <avr/interrupt.h>
 #include "uart.h"
 
+#define SET(x,y)    (x |= (1 << y))
+
 /* 
  * Baud rate definition
  * 1MHz: 9600 - 19200 baud
