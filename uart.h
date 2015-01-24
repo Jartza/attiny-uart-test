@@ -1,5 +1,6 @@
 #define state 		GPIOR0
 #define current_byte 	GPIOR1
+#define sregstore	GPIOR2
 
 #define UART_PORT 	PORTA
 #define UART_DDR 	DDRA

@@ -14,11 +14,10 @@
  * Baud rate definition
  * 1MHz: 9600 - 19200 baud
  * 8MHz: 38400 - 115200 baud
- * 16MHz: 115200 - 230400 baud
+ * 16MHz: 115200 - 460800 baud
  */
-#define BAUD        230400
+#define BAUD        460800
 #define BAUD_DIV    (F_CPU / BAUD) - 0.5
-// #define BAUD_DIV 32 (460800 baud testing)
 
 /* Transmit a byte. Blocking, no buffering */
 static void tx(const uint8_t c) {
