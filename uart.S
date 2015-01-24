@@ -32,7 +32,7 @@ startbit:
 
 databit:
 	in r18, current_byte	; read current tx byte
-	lsr r18					; shift right
+	lsr r18					; shift right (LSB to carry)
 	out current_byte, r18	; store it back
 	brcs one				; was LSB one?
 	cbi UART_PORT, UART_TX	; it was zero
