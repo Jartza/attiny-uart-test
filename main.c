@@ -6,6 +6,7 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <util/delay.h>
 #include "uart.h"
 
 #define SET(x,y)    (x |= (1 << y))
@@ -13,7 +14,7 @@
 /* 
  * Baud rate definition
  * 1MHz: 9600 - 19200 baud
- * 8MHz: 38400 - 115200 baud
+ * 8MHz: 38400 - 230400 baud
  * 16MHz: 115200 - 460800 baud
  */
 #define BAUD        460800
