@@ -38,6 +38,7 @@ void init_serial() {
     TCCR0A |= (1 << WGM01);     // CTC mode
     TCCR0B |= (1 << CS10);      // Clock source CPU clock
     OCR0A = BAUD_DIV;           // Compare value
+    TIMSK0 = 0;
     sei();
 }
 
