@@ -18,7 +18,7 @@
  * 16MHz: 115200 - 460800 baud
  */
 #define BAUD        460800
-#define BAUD_DIV    (F_CPU / BAUD) - 0.5
+#define BAUD_DIV    (F_CPU / BAUD)
 
 /* Transmit a byte. Blocking, no buffering */
 static void tx(const uint8_t c) {
