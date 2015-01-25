@@ -15,8 +15,8 @@ TIM0_COMPA_vect:
 
 	in 	r18, state		; read current state
 	cpi 	r18, START		; start bit?
-	brcs 	done			; it was zero. get out of here.
 	breq 	startbit		; yes it was
+;	brcs 	done			; it was zero. get out of here.
 	cpi 	r18, STOP		; stop bit?
 	breq 	stopbit			; jump if it was stopbit
 
@@ -45,6 +45,7 @@ done:
 stopbit:
 	sbi 	UART_PORT, UART_TX	; stop bit (high)
 	clr 	r18			; zero state
+	out 	TIMSK0, r18		; zero interrupts
 	rjmp 	store			; store state
 
 startbit:

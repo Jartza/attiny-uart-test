@@ -23,8 +23,9 @@
 /* Transmit a byte. Blocking, no buffering */
 static void tx(const uint8_t c) {
     while (state);
-    current_byte = c;
     state = START;
+    current_byte = c;
+    TIMSK0 = (1 << OCIE0A);     // Enable compare interrupt
 }
 
 /* Set up Timer0 for interrupts */
@@ -35,9 +36,8 @@ void init_serial() {
     /* Init Timer0 and enable interrupts */
     cli();
     TCCR0A |= (1 << WGM01);     // CTC mode
-    TCCR0B |= (1 << CS10);      // No prescaler
+    TCCR0B |= (1 << CS10);      // Clock source CPU clock
     OCR0A = BAUD_DIV;           // Compare value
-    TIMSK0 |= (1 << OCIE0A);    // Enable compare interrupt
     sei();
 }
 
